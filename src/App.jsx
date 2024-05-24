@@ -1,11 +1,12 @@
 import React from 'react'
 import './App.css'
+import config from './config/config'
 
 function App() {
-  console.log(process.env.REACT_APP_APPWRITE_URL)
+  console.log(config.appwriteUrl)
   return (
     <>
-       <Navbar/>
+        <h1 className='mt-6 text-3xl text-slate-800 font-medium text-center'>InsightInk</h1>
     </>
   )
 }
