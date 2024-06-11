@@ -16,7 +16,7 @@ function Home() {
                 <Container>
                     <div className="flex flex-wrap">
                         <div className="p-2 w-full">
-                            <h1 className="text-center text-[2.35rem] mt-4 mb-10 font-medium">
+                            <h1 className="text-center text-[2.35rem] mt-4 mb-10 font-semibold">
                                 Welcome to InsightInk
                             </h1>
                             <h1 className="text-2xl font-medium mt-12">
@@ -32,7 +32,7 @@ function Home() {
     return (
         <div className="w-full py-8 px-16">
             <Container>
-                <h1 className="text-center text-4xl mt-4 mb-10 font-semibold">
+                <h1 className="text-center text-[2.35rem] mt-4 mb-10 font-semibold">
                     Welcome to InsightInk
                 </h1>
                 {!loading ? (
