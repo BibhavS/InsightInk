@@ -1,14 +1,48 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import './App.css'
-import config from './config/config'
+import { Outlet } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import authService from './appwrite/auth';
+import { login, logout } from './store/authSlice';
+import loadingGif from './assets/loadingIcon.gif';
+import { Header, Footer } from './Components';
+import { fetchPosts } from './store/postSlice';
 
 function App() {
-  console.log(config.appwriteUrl)
-  return (
+  const [loading, setLoading] = useState(true);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    authService.getCurrentUser()
+      .then((userData) => {
+        if (userData) {
+          dispatch(fetchPosts())
+          dispatch(login(userData))
+        }
+        else {
+          dispatch(logout())
+        }
+      })
+      .finally(() => setLoading(false))
+  }, [])
+
+  return !loading ? (
     <>
-        <h1 className='mt-6 text-3xl text-slate-800 font-medium text-center'>InsightInk</h1>
+      <div className='min-h-screen flex flex-col flex-wrap content-between'>
+        <div className='w-full flex flex-col min-h-screen'>
+          <Header />
+          <main className='flex-grow'>
+             <Outlet />
+          </main>
+          <Footer />
+        </div>
+      </div>
     </>
+  ) : (<div className=' flex justify-center'>
+    <img src={loadingGif} alt="loading" />
+  </div>
   )
+
 }
 
 export default App
