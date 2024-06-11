@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { Container, PostCard } from '../Components'
 import { useDispatch, useSelector } from 'react-redux';
 import loadingGif from '../assets//loadingIcon.gif';
+import { fetchPosts } from '../store/postSlice';
 
 function AllPosts() {
     const dispatch = useDispatch();
@@ -15,7 +16,7 @@ function AllPosts() {
     }, [dispatch, posts.length]);
 
     return (
-        <div className='w-ful py-8'>
+        <div className='w-full py-8 px-8'>
             <Container>
                 {!loading ? (
                     <div className='grid grid-cols-3 gap-12'>

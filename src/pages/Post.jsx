@@ -36,7 +36,7 @@ export default function Post() {
     };
 
     return post ? (
-        <div className="py-8 px-10">
+        <div className="py-8 px-8">
             <Container>
                 <div className="w-full justify-center flex mb-4 relative rounded-xl">
                     <img

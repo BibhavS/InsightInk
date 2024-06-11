@@ -36,7 +36,7 @@ export default function Header() {
   ]
   return (
     <>
-    <header className='py-8 px-8 shadow-xl'>
+    <header className='py-8 px-10 shadow-2xl'>
       <Container>
          <nav className='flex'>
           <div className='mr-4'>

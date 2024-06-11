@@ -30,9 +30,9 @@ function Home() {
     }
 
     return (
-        <div className="w-full py-8 px-16">
+        <div className="w-full py-8 px-8">
             <Container>
-                <h1 className="text-center text-[2.35rem] mt-4 mb-10 font-semibold">
+                <h1 className="text-center text-[2.4rem] mt-4 mb-8 font-semibold">
                     Welcome to InsightInk
                 </h1>
                 {!loading ? (
