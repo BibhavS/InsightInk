@@ -34,7 +34,7 @@ export default function PostForm({ post }) {
             }
 
             const dbPost = await appwriteService.updatePost(post.$id, {
-                ...data, featuredimage: file.$id
+                ...data, featuredimage: file?.$id
             })
 
             if (dbPost) {
