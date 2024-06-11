@@ -27,6 +27,7 @@ export const fetchPosts = () => async (dispatch) => {
   dispatch(setLoading(true));
   try {
     const response = await appwriteService.getAllPosts();
+    console.log(response.documents)
     dispatch(setPosts(response.documents));
     dispatch(setLoading(false));
   } catch (error) {

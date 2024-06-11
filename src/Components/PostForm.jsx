@@ -34,7 +34,7 @@ export default function PostForm({ post }) {
             }
 
             const dbPost = await appwriteService.updatePost(post.$id, {
-                ...data, featuredimage: file?.$id
+                ...data, featuredimage: file?.$id, userName: userData?.name
             })
 
             if (dbPost) {
@@ -50,7 +50,7 @@ export default function PostForm({ post }) {
                 const fileId = file.$id
                 data.featuredimage = fileId
                 console.log(data);
-                const dbPost = await appwriteService.createPost({ ...data, userId: userData.$id });
+                const dbPost = await appwriteService.createPost({ ...data, userId: userData.$id, userName: userData?.name});
 
                 if (dbPost) {
                     dispatch(fetchPosts());
