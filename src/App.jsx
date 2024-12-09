@@ -16,14 +16,15 @@ function App() {
     authService.getCurrentUser()
       .then((userData) => {
         if (userData) {
-          dispatch(fetchPosts())
           dispatch(login(userData))
+          dispatch(fetchPosts())
         }
         else {
           dispatch(logout())
         }
       })
       .finally(() => setLoading(false))
+
   }, [])
 
   return !loading ? (
@@ -31,7 +32,7 @@ function App() {
       <div className='min-h-screen flex flex-col flex-wrap content-between'>
         <div className='w-full flex flex-col min-h-screen'>
           <Header />
-          <main className='flex-grow'>
+          <main className='flex flex-grow items-center justify-center'>
              <Outlet />
           </main>
           <Footer />

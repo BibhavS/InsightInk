@@ -10,7 +10,7 @@ function Signup() {
     const navigate = useNavigate();
     const [error, setError] = useState("")
     const dispatch = useDispatch();
-    const { register, handleSubmit } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
 
     const create = async (data) => {
         setError("");
@@ -28,9 +28,10 @@ function Signup() {
     }
 
     return (
+        <> 
         <div className="flex items-center justify-center w-full my-4">
             <div className={`mx-auto w-full max-w-lg shadow-xl rounded-xl p-10 border border-black/10`}>
-              
+              <div>
                 <h2 className="text-center text-3xl font-bold leading-tight">Sign up to create account</h2>
                 <p className="mt-4 text-center text-base text-black/60">
                     Already have an account?&nbsp;
@@ -64,6 +65,7 @@ function Signup() {
                                 }
                             })}
                         />
+
                         <Input
                             label="Password: "
                             type="password"
@@ -81,8 +83,10 @@ function Signup() {
                         </Button>
                     </div>
                 </form>
+                </div>
             </div>
         </div>
+        </>
     )
 }
 

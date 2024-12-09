@@ -49,7 +49,7 @@ export default function Post() {
                 <div className="w-full mt-16">
                     <h1 className="text-5xl font-bold text-center">{post.title}</h1>
                 </div>
-                <div className="font-normal mt-16 text-2xl text-justify">
+                <div className="font-normal mt-16 text-[1.25rem] text-justify">
                     {parse(post.content)}
                 </div>
                 {isAuthor && (

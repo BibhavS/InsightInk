@@ -21,6 +21,8 @@ const postSlice = createSlice({
   },
 });
 
+ 
+
 export const { setPosts, setLoading, setError } = postSlice.actions;
 
 export const fetchPosts = () => async (dispatch) => {
@@ -35,5 +37,7 @@ export const fetchPosts = () => async (dispatch) => {
     dispatch(setLoading(false));
   }
 };
+
+ 
 
 export default postSlice.reducer;

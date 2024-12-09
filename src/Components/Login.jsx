@@ -19,19 +19,21 @@ function Login() {
             if (session) {
                 const userData = await authService.getCurrentUser();
                 if (userData){
+                    console.log("Authenticated successfully"+ userData.name);
                     dispatch(authLogin(userData))
                 }
                 navigate("/");
             }
         }
         catch (error) {
+            alert("There was a problem signing in");
             setError(error.message)
         }
     }
 
     return (
         <>
-            <div className='flex items-center justify-center w-full my-12'>
+            <div className='flex items-center justify-center w-full my-4'>
                 <div className={`mx-auto w-full max-w-lg shadow-xl rounded-xl p-10 border border-black/10`}>
                      
                     <div>
